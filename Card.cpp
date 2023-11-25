@@ -4,23 +4,23 @@
 using namespace solitaire;
 using namespace Gdiplus;
 
-Card::Card(HWND hwnd, int index, Type type, int x, int y) : 
+Card::Card(HWND hwnd, int index, Type type, int x, int y) :
 	mHwnd(hwnd), mIndex(index), mType(type), mX(x), mY(y), mIsFront(false)
 {
-	mBack = std::make_unique<Image>(L"Images/card_back.png");
+	mBack = std::make_unique<Image>(L"Images/backR.png");
 
 	std::wstring filename;
 
 	switch (mType)
 	{
-	case Type::Wolf:
-		filename = L"Images/card_creature_wolf.png";
+	case Type::Jack:
+		filename = L"Images/JH.png";
 		break;
-	case Type::Dragon:
-		filename = L"Images/card_creature_dragon.png";
+	case Type::King:
+		filename = L"Images/KD.png";
 		break;
-	case Type::Bear:
-		filename = L"Images/card_creature_bear.png";
+	case Type::Queen:
+		filename = L"Images/QD.png";
 		break;
 	}
 	mFront = std::make_unique<Image>(filename.c_str());
@@ -44,7 +44,6 @@ void Card::Flip(bool isFront)
 	Invalidate();
 }
 
-
 void Card::Draw(Gdiplus::Graphics& graphics)
 {
 	if (mIsFront)
@@ -60,6 +59,6 @@ void Card::Draw(Gdiplus::Graphics& graphics)
 void Card::Invalidate()
 {
 	RECT rct{ mX, mY, static_cast<LONG>(mX + mBack->GetWidth()), static_cast<LONG>(mY + mBack->GetHeight()) };
-	
+
 	InvalidateRect(mHwnd, &rct, false);
 }

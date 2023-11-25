@@ -17,16 +17,16 @@ namespace solitaire
 			switch (mod)
 			{
 			case 0:
-				types.push_back(Type::Bear);
-				types.push_back(Type::Bear);
+				types.push_back(Type::Jack);
+				types.push_back(Type::Jack);
 				break;
 			case 2:
-				types.push_back(Type::Wolf);
-				types.push_back(Type::Wolf);
+				types.push_back(Type::Queen);
+				types.push_back(Type::Queen);
 				break;
 			case 4:
-				types.push_back(Type::Dragon);
-				types.push_back(Type::Dragon);
+				types.push_back(Type::King);
+				types.push_back(Type::King);
 				break;
 			}
 		}
@@ -43,7 +43,7 @@ namespace solitaire
 			for (int y = 0; y < BOARD_ROW; ++y)
 			{
 				mDeck.push_back(Card(mHwnd, index, types[index++], posX, posY));
-				posY += 150;
+				posY += 120;
 			}
 			posX += 110;
 		}

@@ -7,9 +7,9 @@ namespace solitaire
 {
 	enum class Type
 	{
-		Wolf,
-		Dragon,
-		Bear
+		Jack,
+		Queen,
+		King
 	};
 
 	class Card
@@ -32,7 +32,7 @@ namespace solitaire
 		void Flip(bool isFront);
 		void Draw(Gdiplus::Graphics& graphics);
 		void Invalidate();
-		
+
 		Type GetType() const { return mType; }
 		int GetIndex() const { return mIndex; }
 	};
